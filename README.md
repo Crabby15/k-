@@ -399,6 +399,8 @@ Arsitektur
 
 Project menggunakan pendekatan feature-first + clean architecture ringan.
 
+```
+
 lib/
 ├── core/
 │   ├── constants/
@@ -426,6 +428,8 @@ lib/
 │
 ├── app.dart
 └── main.dart
+
+```
 
 Prinsip utama
 
