@@ -1,5 +1,30 @@
 JasaDekat
 
+## Prototype aplikasi
+
+Prototype Flutter saat ini mencakup layar masuk/daftar dan beranda marketplace
+dengan kategori serta contoh layanan. Implementasi ada di `lib/main.dart` dan
+`lib/app.dart`. Akun yang dibuat tersimpan sementara di memori aplikasi untuk
+demonstrasi alur; autentikasi Supabase dan penyimpanan permanen belum terhubung.
+
+State management untuk pencarian jasa dan proses booking menggunakan Riverpod.
+Lokasi kode, aliran data, daftar state, perintah test, dan prompt AI tercatat di
+[`docs/state_management.md`](docs/state_management.md).
+
+Scaffolding Android dan Web sudah tersedia. Pastikan Flutter SDK sudah masuk
+PATH, buka terminal baru dari direktori proyek, lalu jalankan:
+
+```sh
+flutter pub get
+flutter run -d chrome
+```
+
+Untuk menjalankan di emulator Android yang aktif, gunakan `flutter run`.
+
+Untuk menguji alur demo, pilih **Daftar**, buat akun dengan email valid dan
+kata sandi minimal 6 karakter, lalu keluar melalui menu avatar. Masuk kembali
+menggunakan akun yang sama. Data akun hilang ketika aplikasi dimulai ulang.
+
 Platform mobile untuk mempertemukan masyarakat yang membutuhkan bantuan/jasa dengan penyedia jasa di sekitar mereka.
 
 
