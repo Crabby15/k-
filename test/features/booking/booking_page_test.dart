@@ -133,4 +133,13 @@ class _DelayedRepository implements ServiceRepository {
 
   @override
   Future<void> createBooking(BookingRequest request) async {}
+
+  @override
+  Future<List<BookingRequest>> fetchBookings() async => [];
+
+  @override
+  Future<void> updateBooking(BookingRequest request) async {}
+
+  @override
+  Future<void> deleteBooking(String id) async {}
 }

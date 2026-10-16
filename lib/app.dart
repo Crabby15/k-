@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'features/booking/presentation/booking_page.dart';
+import 'features/booking/presentation/booking_list_page.dart';
 import 'features/services/data/service_repository.dart';
 import 'features/services/domain/service_item.dart';
 import 'features/services/presentation/service_search_page.dart';
@@ -467,6 +468,13 @@ class HomePage extends StatelessWidget {
         ),
         bottomNavigationBar: NavigationBar(
           selectedIndex: 0,
+          onDestinationSelected: (index) {
+            if (index == 1) {
+              Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => const BookingListPage(),
+              ));
+            }
+          },
           destinations: const [
             NavigationDestination(
                 icon: Icon(Icons.home_outlined),

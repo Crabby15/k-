@@ -29,4 +29,18 @@ class FeatureTestRepository implements ServiceRepository {
     bookings.add(request);
     await _submit?.call(request);
   }
+
+  @override
+  Future<List<BookingRequest>> fetchBookings() async => List.of(bookings);
+
+  @override
+  Future<void> updateBooking(BookingRequest request) async {
+    final index = bookings.indexWhere((booking) => booking.id == request.id);
+    if (index >= 0) bookings[index] = request;
+  }
+
+  @override
+  Future<void> deleteBooking(String id) async {
+    bookings.removeWhere((booking) => booking.id == id);
+  }
 }

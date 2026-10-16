@@ -39,10 +39,13 @@ class _BookingPageState extends ConsumerState<BookingPage> {
     final date = DateTime.parse(_dateController.text);
     await ref.read(bookingSubmitProvider.notifier).submit(
           BookingRequest(
+            id: DateTime.now().microsecondsSinceEpoch.toString(),
             serviceId: service.id,
             customerName: 'Demo customer',
             scheduledAt: date,
             note: _noteController.text.trim(),
+            status: 'pending',
+            createdAt: DateTime.now(),
           ),
         );
     if (!mounted) return;

@@ -1,5 +1,21 @@
 JasaDekat
 
+## Local Data & Persistence (demo reviewer)
+
+Alur vertikal yang memakai penyimpanan lokal adalah **Booking/Pesanan** (Flutter `shared_preferences`, key `jasa_dekat.bookings.v1`, JSON versioned). Data tersimpan di device, terpisah dari session login demo.
+
+Posisi implementasi:
+
+- Model/entity dan JSON serialization: `lib/features/booking/domain/booking_request.dart`
+- Repository local storage dan operasi CRUD: `lib/features/services/data/service_repository.dart` (`fetchBookings`, `createBooking`, `updateBooking`, `deleteBooking`)
+- Submit/create dari form: `lib/features/booking/presentation/booking_page.dart`
+- Read setelah buka/refresh, update status, delete: `lib/features/booking/presentation/booking_list_page.dart`
+- Pintu masuk daftar: navigasi **Pesanan** pada `lib/app.dart`
+
+Demo persistence: jalankan `flutter run`, buat booking melalui **Buat pesanan jasa**, buka tab **Pesanan**, ubah status lewat menu titik tiga dan coba hapus salah satu item. Tutup aplikasi lalu jalankan lagi pada device yang sama; karena akun demo hanya tersimpan di memori, daftar/masuk demo kembali bila diminta, lalu buka **Pesanan**. Booking yang belum dihapus muncul kembali. Tombol refresh di halaman Pesanan membaca ulang JSON dari storage lokal. Pada Flutter Web, storage mengikuti origin browser.
+
+Model booking menyimpan `id`, `serviceId`, `customerName`, `scheduledAt`, `note`, `status`, dan `createdAt`. `pending` dapat diubah menjadi `confirmed` dan sebaliknya. Ini demo lokal; data tidak disinkronkan antar-device dan tidak menggantikan backend produksi.
+
 ## Prototype aplikasi
 
 Prototype Flutter saat ini mencakup layar masuk/daftar dan beranda marketplace
